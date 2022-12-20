@@ -8,13 +8,13 @@
 //  Приклад: getRandomArray(15, 1, 100) –>
 // [6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2]
 
-let arrRandom = [];
+const arrRandom = [];
 
-let getRandomArray = (length,min,max) => {
+const getRandomArray = (length,min,max) => {
 
-for(let i = 0; i < length; i++) {
+  for(let i = 0; i < length; i++) {
  arrRandom.push(Math.round (Math.random() * (max-min) + min)); 
- }
+  }
 }
 getRandomArray(15,10,100)
 console.log("ФУНКЦИЯ 1 - массив случайных целых чисел",(arrRandom)); 
@@ -27,7 +27,7 @@ console.log("ФУНКЦИЯ 1 - массив случайных целых чи�
 // НЕЦІЛІ ЧИСЛА ІГНОРУЮТЬСЯ. 
 // Приклад: getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) –> 2
 
-let getModa = (...numbers) => numbers.filter((e, index) => numbers.indexOf(e) !== index)                //!!!!!!!!!!!!!!!!!!!
+const getModa = (...numbers) => numbers.filter((e, index) => numbers.indexOf(e) !== index)                //!!!!!!!!!!!!!!!!!!!
 console.log('ФУНКЦИЯ 2 - мода чисел',getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2)); 
 
 
@@ -39,7 +39,7 @@ console.log('ФУНКЦИЯ 2 - мода чисел',getModa(6, 2, 55, 11, 78, 2
 // НЕЦІЛІ ЧИСЛА ІГНОРУЮТЬСЯ.
 //  Приклад: getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) –> 34.4
 
-let getAverage = (...numbers) => numbers.reduce((a,b) => a+b) / numbers.length  //НЕЦІЛІ ЧИСЛА ІГНОРУЮТЬСЯ??.!!!!!!!!!!!!!!!!!!!!
+const getAverage = (...numbers) => numbers.reduce((a,b) => a+b) / numbers.length  //НЕЦІЛІ ЧИСЛА ІГНОРУЮТЬСЯ??.!!!!!!!!!!!!!!!!!!!!
 console.log("ФУНКЦИЯ 3 - среднее арифметическое",getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2)); 
 
 
@@ -49,14 +49,16 @@ console.log("ФУНКЦИЯ 3 - среднее арифметическое",get
 // НЕЦІЛІ ЧИСЛА ІГНОРУЮТЬСЯ. Приклад: getMedian(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) –> 23
 // Приклад: getMedian(1, 2, 3, 4) –> 2.5 Приклад: getMedian(1, 2, 3, 4, 5) –> 3
 
-let getMedian = (...numbers) => {
-    numbers.sort((a, b) => a - b);
-    if (numbers.length % 2) {
-      return numbers[Math.floor(numbers.length / 2)];
-    } else {
+const getMedian = (...numbers) => {
+ numbers.sort((a, b) => a - b);
+  
+  if (numbers.length % 2) {
+   return numbers[Math.floor(numbers.length / 2)];
+  
+  } else {
       return (numbers[numbers.length / 2] + numbers[numbers.length / 2 - 1]) / 2;
     }
-  }
+}
 console.log("ФУНКЦИЯ 4 - медиана переданных аргументов",getMedian(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2),getMedian(1, 2, 3, 4),getMedian(1, 2, 3, 4, 5));
 
 
@@ -67,7 +69,8 @@ console.log("ФУНКЦИЯ 4 - медиана переданных аргуме
 
 const randomNumbers = [1, 2, 3, 4, 5, 6];
 
-let filterEvenNumbers = randomNumbers.filter(num => {
+const filterEvenNumbers = randomNumbers.filter(num => {
+
   if (num%2!==0) {
     return num;
   }
@@ -84,10 +87,12 @@ console.log("ФУНКЦИЯ 5 - фильтрует парные числа",filt
 const someNumbers = [1, -2, 3, -4, -5, 6];
 
 let sum = 0; 
-let countPositiveNumbers = someNumbers.filter(num=> {
-if (num > 0) {
-  return sum += 1;
- }
+
+const countPositiveNumbers = someNumbers.filter(num => {
+  
+  if (num > 0) {
+   return sum += 1;
+  }
 });
 console.log("ФУНКЦИЯ 6 - показывакет кол-во чисел больше 0 ",sum);
 
@@ -101,8 +106,8 @@ console.log("ФУНКЦИЯ 6 - показывакет кол-во чисел б
 
 const someMoreNumbers = [6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2];
 
-let getDividedByFive = someMoreNumbers.filter(num => num%5==0);
-console.log("ФУНКЦИЯ 7 - показывакет числа, которые делятся нацело на 5 ", getDividedByFive);
+const getDividedByFive = someMoreNumbers.filter(num => num%5==0);
+console.log("ФУНКЦИЯ 7 - показывает числа, которые делятся нацело на 5 ", getDividedByFive);
 
 
                 // ФУНКЦИЯ 8
@@ -116,9 +121,9 @@ console.log("ФУНКЦИЯ 7 - показывакет числа, которы�
 // Приклад: replaceBadWords("Holy shit!") -> "Holy !"
 // Приклад: replaceBadWords("It's bullshit!") -> "It's bull****!"
 
-let badWords = /fuck|shit/gi;
+const badWords = /fuck|shit/gi;
 
-let replaceBadWords = (string) => string.replace(badWords,"****" )
+const replaceBadWords = (string) => string.replace(badWords,"****" );
 console.log("ФУНКЦИЯ 8 - заменяет плохие слова",replaceBadWords("Are you fucking  kidding?"),replaceBadWords("It's bullshit!"),replaceBadWords("Holy shit!"));
 
 
@@ -134,7 +139,7 @@ console.log("ФУНКЦИЯ 8 - заменяет плохие слова",replac
 // Пробіли завжди видаляються. Рядок приводится до нижнього регістру.
 // Приклад: divideByThree("Commander) -> ["com", "man", "der"] Приклад: divideByThree("live") -> ["liv", "e"]
 
-let divideByThree = (word) => word.toLowerCase().trim().match(/.{1,3}/g);
+const divideByThree = (word) => word.toLowerCase().trim().match(/.{1,3}/g);
 console.log ("ФУНКЦИЯ 9 - разбивает слово по три слога",divideByThree("Commander"),divideByThree("live"));
 
 
@@ -147,15 +152,17 @@ console.log ("ФУНКЦИЯ 9 - разбивает слово по три сл�
 //   Приклад: generateCombinations("man") -> ["man", "mna", "amn", "anm", "nam", "nma"]
 //   Приклад: generateCombinations("ol") -> ["ol", "lo"]
 
-let generateCombinations = (word,result) => {
-   if(word.length == 0){
+const generateCombinations = (word,result) => {
+
+   if (word.length == 0) {
     console.log(result);
    }
-    for (let i = 0; i < word.length;  i++){
+    
+   for (let i = 0; i < word.length;  i++) {
         let rest = word.substring(0,i) + word.substring(i+1)
         generateCombinations(rest,result + word[i])
-        }
     }
+}
     console.log('ФУНКЦИЯ 10 - генерирует уникальные слова'),generateCombinations("man",'');
         
 
